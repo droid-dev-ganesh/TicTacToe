@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/parentLay"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whitebackground"
+    android:orientation="vertical"
+    tools:context=".GameActivity">
+
+    <LinearLayout
+        android:layout_margin="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Other player email"
+            android:inputType="textEmailAddress" />
+
+        <Button
+            android:id="@+id/buRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3pt"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:text="Request" />
+
+        <Button
+            android:layout_marginLeft="3pt"
+            android:background="@color/green"
+            android:id="@+id/buAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Accept" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtPlayerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        />
+    <Button
+        android:id="@+id/btnRematch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Re-match"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/darkpurple"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        />
+
+    <TableLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/whitebackground"
+        android:gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3pt"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/bu1"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:layout_marginRight="3pt"
+                android:background="@color/white"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textStyle="bold" />
+
+            <Button
+
+                android:id="@+id/bu2"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:layout_marginRight="3pt"
+                android:background="@color/white"
+                
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/bu3"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:background="@color/white"
+                
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3pt"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/bu4"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:layout_marginRight="3pt"
+                android:background="@color/white"
+                
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/bu5"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:layout_marginRight="3pt"
+                android:background="@color/white"
+                
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/bu6"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:background="@color/white"
+                
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/bu7"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:layout_marginRight="3pt"
+                android:background="@color/white"
+                
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/bu8"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:layout_marginRight="3pt"
+                android:background="@color/white"
+                
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/bu9"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:background="@color/white"
+                
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

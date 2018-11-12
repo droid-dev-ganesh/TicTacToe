@@ -47,6 +47,8 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
         mFirebaseAnalytics= FirebaseAnalytics.getInstance(this)
+
+        //bind views
         tabLayout=findViewById(R.id.tabLayout)
         parentLay=findViewById(R.id.parentLay)
         btnRematch=findViewById(R.id.btnRematch)
@@ -63,6 +65,7 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
         bu8=findViewById(R.id.bu8)
         bu9=findViewById(R.id.bu9)
 
+        //set listeners
         bu1.setOnClickListener(this)
         bu2.setOnClickListener(this)
         bu3.setOnClickListener(this)
@@ -76,8 +79,10 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
         var b:Bundle=intent.extras
         myEmail=b.getString("email")
         txtPlayerName.text="Your are : $myEmail"
-        IncommingCalls()
+        IncommingCalls()//initial user connection
 
+
+        //initial enabled buttons
         enabledButtonList.add(bu1)
         enabledButtonList.add(bu2)
         enabledButtonList.add(bu3)
@@ -90,6 +95,7 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
 
 
         btnRematch.setOnClickListener(View.OnClickListener {
+            //for rematch
             clear()
         })
 
@@ -99,10 +105,10 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
             myRef.child("Users").child(SplitString(userDemail)).child("Request").push().setValue(myEmail)
 
 
-            PlayerOnline(SplitString(myEmail!!)+ SplitString(userDemail)) // husseinjena
+            PlayerOnline(SplitString(myEmail!!)+ SplitString(userDemail)) // player1name+player2name
             PlayerSymbol="X"
             if (youAre.isBlank())
-                youAre="O"
+                youAre="O"//define your symbol
         })
 
         buAccept.setOnClickListener(View.OnClickListener {
@@ -110,7 +116,7 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
             myRef.child("Users").child( SplitString(userDemail)).child("Request").push().setValue(myEmail)
 
 
-            PlayerOnline(SplitString(userDemail)+SplitString(myEmail!!)) //husseinjena
+            PlayerOnline(SplitString(userDemail)+SplitString(myEmail!!)) //player1name+player2name
             PlayerSymbol="O"
             if (youAre.isBlank())
                 youAre="X"
@@ -295,6 +301,10 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
         }else if ((player1.size+player2.size)==9 || disabledButtonList.size==9){
             winer=3
             android.widget.Toast.makeText(this," Match Draw", android.widget.Toast.LENGTH_LONG).show()
+            for (btn in enabledButtonList){
+                btn.isEnabled=false
+                btn.isClickable=false
+            }
             btnRematch.visibility=View.VISIBLE
 
         }
@@ -450,12 +460,20 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
     }
 
     fun clear(){
-
+        //reset values, clear buttons and enable all buttons
         winer=-1
         ActivePlayer=1
         player1.clear()
         player2.clear()
         btnRematch.visibility=View.GONE
+
+        for(btn in enabledButtonList){
+            btn.isEnabled=true
+            btn.isClickable=true
+            btn.text=""
+            btn.setBackgroundResource(R.color.white)
+        }
+
         for (btn in disabledButtonList){
             btn.isEnabled=true
             btn.isClickable=true

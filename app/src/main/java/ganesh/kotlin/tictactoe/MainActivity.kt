@@ -58,7 +58,7 @@ class MainActivity : Activity(),View.OnClickListener {
     override fun onClick(v: View?) {
 
         when(v!!.id){
-            R.id.btnSignin -> createAccount(editTextEmail.text.toString(),editTextPassword.text.toString())
+            R.id.btnSignin -> createAccount(editTextEmail.text.toString(),editTextPassword.text.toString())//create account
             R.id.textViewForgot -> Toast.makeText(baseContext,"Coming soon..!",Toast.LENGTH_SHORT).show()
 
         }
@@ -95,7 +95,7 @@ class MainActivity : Activity(),View.OnClickListener {
                         // If sign in fails, display a message to the user.
                         Log.d("Login",task.exception.toString())
                         if (task.exception.toString().contains("The email address is already in use by another account.")){
-                            signIn(email,password)
+                            signIn(email,password)//if already a user,call sign in
                         }else {
                             Toast.makeText(baseContext, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show()
@@ -122,7 +122,7 @@ class MainActivity : Activity(),View.OnClickListener {
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         val user = auth.currentUser
-                        callGameActivity(user)
+                        callGameActivity(user)// call GameActivity
                     } else {
                         // If sign in fails, display a message to the user.
                         Toast.makeText(baseContext, "Authentication failed.",
@@ -179,6 +179,7 @@ class MainActivity : Activity(),View.OnClickListener {
     private fun callGameActivity(user : FirebaseUser?){
         if (user!=null){
             var intent = Intent(this, GameActivity::class.java)
+            //pass email and uid for reference
             intent.putExtra("email", user.email)
             intent.putExtra("uid", user.uid)
             startActivity(intent)
